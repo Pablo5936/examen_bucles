@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examen UF1306</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+
+  input {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+  }
+
+  button:hover {
+    background-color: #218838;
+  }
+
+  #resultado {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+
+<body>
+  <h1>Examen UF1306</h1>
+  <h2>Juan Pablo Torres Ríos</h2>
+  <p>¿Tienen ambas frases el mismo número de vocales?</p>
+  <label for="frase1">Frase 1:</label>
+  <input type="text" id="frase1">
+  <label for="frase2">Frase 2:</label>
+  <input type="text" id="frase2">
+  <button id="comprobar" onclick="comprobar()">Comprobar</button>
+  <p id="resultado"></p>
+  <script>
+    function contarVocales(texto) {
+      contador = 0;
+      for (let i = 0; i < texto.length; i++) {
+        if ("aeiouáéíóú".includes(texto[i].toLowerCase())) {
+          contador++;
+        }
+      }
+      return contador;
+    }
+
+    function comprobar() {
+      const FRASE1 = document.getElementById("frase1").value;
+      const FRASE2 = document.getElementById("frase2").value;
+      const RESULTADO = document.getElementById("resultado");
+
+      const vocalesFrase1 = contarVocales(FRASE1);
+      const vocalesFrase2 = contarVocales(FRASE2);
+
+      if (vocalesFrase1 === vocalesFrase2) {
+        RESULTADO.innerText = `Si, ambas frases tienen ${contador} vocales.`;
+      } else {
+        RESULTADO.innerText = `No, la frase 1 tien ${vocalesFrase1} vocales y la frase 2 tiene ${vocalesFrase2} vocales.`;
+      }
+    }
+  </script>
+</body>
+
+</html>
