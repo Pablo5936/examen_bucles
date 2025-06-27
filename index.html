@@ -63,7 +63,7 @@
     function contarVocales(texto) {
       contador = 0;
       for (let i = 0; i < texto.length; i++) {
-        if ("aeiouáéíóú".includes(texto[i].toLowerCase())) {
+        if (texto[i].toLowerCase().replace(/[\u0300-\u036f]/g, '')) {
           contador++;
         }
       }
@@ -81,7 +81,7 @@
       if (vocalesFrase1 === vocalesFrase2) {
         RESULTADO.innerText = `Si, ambas frases tienen ${contador} vocales.`;
       } else {
-        RESULTADO.innerText = `No, la frase 1 tien ${vocalesFrase1} vocales y la frase 2 tiene ${vocalesFrase2} vocales.`;
+        RESULTADO.innerText = `No, la frase 1 tiene ${vocalesFrase1} vocales y la frase 2 tiene ${vocalesFrase2} vocales.`;
       }
     }
   </script>
